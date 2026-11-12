@@ -22,3 +22,19 @@ class Satellite:
             "valore": valore,
             "unita": sensore.unità
         })
+
+    def letture_in_allarme(self) -> list:
+        allarmi: list = []
+        
+        for lettura in self.letture:
+            if lettura["allarme"]:
+                allarmi.append(lettura)
+        
+        return allarmi
+
+    def riepilogo(self) -> None:
+        print("Telemetria satellite:", self.nome)
+        
+        for lettura in self.letture:
+            stato = "ALLARME" if lettura["allarme"] else "OK"
+            print(lettura["sensore"], lettura["valore"], lettura["unita"], stato)
