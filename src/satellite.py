@@ -22,3 +22,12 @@ class Satellite:
             "valore": valore,
             "unita": sensore.unità
         })
+
+    def letture_in_allarme(self) -> list:
+        allarmi: list = []
+        
+        for lettura in self.letture:
+            if lettura["allarme"]:
+                allarmi.append(lettura)
+        
+        return allarmi
