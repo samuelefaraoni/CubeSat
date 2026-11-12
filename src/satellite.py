@@ -1,3 +1,5 @@
+from sensore import Sensore
+
 class Satellite:
     Sensori = {}
 
@@ -20,7 +22,8 @@ class Satellite:
             "sensore": codice_sensore,
             "grandezza": sensore.grandezza,
             "valore": valore,
-            "unita": sensore.unità
+            "unita": sensore.unita,
+            "allarme": valore > sensore.sogliaMassima
         })
 
     def letture_in_allarme(self) -> list:
